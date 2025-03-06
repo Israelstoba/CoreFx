@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CoreFx Trading Academy</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <section class="sections" id="calc-section">
+      <div class="calc-con">
+        <div class="logo-con">
+          <img src="assets/cfxlogo.png" alt="" class="logo" />
+        </div>
+        <h2 class="calc-title">Lot Size Calculator</h2>
+        <div class="input-con">
+          <label>Account Balance ($):</label>
+          <input
+            class="input-fields"
+            type="number"
+            id="balance"
+            placeholder="Enter your balance"
+          />
+
+          <label>Trading Instrument:</label>
+          <select
+            class="input-fields instrument-wrapper"
+            id="pair"
+            onfocus="this.size=10;"
+            onblur="this.size=0;"
+            onchange="this.size=1; this.blur()"
+          >
+            <option class="instruments" selected disabled>
+              Select Currency Pair
+            </option>
+            <option class="instruments" value="GBPUSD">GBP/USD</option>
+            <option class="instruments" value="GBPUSD">GBP/JPY</option>
+            <option class="instruments" value="USDJPY">USD/CAD</option>
+            <option class="instruments" value="USDJPY">USD/JPY</option>
+            <option class="instruments" value="EURUSD">EUR/USD</option>
+            <option class="instruments" value="EURUSD">EUR/JPY</option>
+            <option class="instruments" value="USDJPY">AUD/USD</option>
+            <option class="instruments" value="USDJPY">AUD/JPY</option>
+            <option class="instruments" value="USDJPY">XAU/USD</option>
+          </select>
+
+          <label>Risk Tolerance ($ or %):</label>
+          <div class="risk-con row">
+            <input
+              class="input-fields risk col-2"
+              type="number"
+              id="risk"
+              placeholder="Enter risk per trade"
+            />
+
+            <div class="col-2">
+              <div class="swap-con row">
+                <div class="to-percent col-2">$</div>
+                <div class="swap-btn col-2">
+                  <img class="swap-icon" src="assets/turn-left.gif" alt="" />
+                  Swap
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <label>Stop-Loss (Pips):</label>
+          <input
+            class="input-fields"
+            type="number"
+            id="stop-loss"
+            placeholder="Enter stop-loss pips"
+          />
+
+          <div class="btn-con">
+            <button
+              class="btn btn-outline calc-btn"
+              onclick="calculateLotSize()"
+            >
+              Calculate
+            </button>
+          </div>
+        </div>
+
+        <div class="result-con">
+          <h3 class="result-title">LOT SIZE</h3>
+          <p class="lot-size">0.00</p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

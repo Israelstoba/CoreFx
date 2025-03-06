@@ -1,0 +1,283 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#debugCSSInfoBar,
+#pesticide-for-chrome-result {
+  z-index: 100000;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--clr-light);
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-inline: auto;
+}
+.row .col-1,
+.row .col-2,
+.row .col-3,
+.row .col-4 {
+  min-width: 200px;
+  flex: 1;
+}
+.row .col-1 {
+  flex-basis: 100%;
+}
+.row .col-2 {
+  flex-basis: 49%;
+}
+.row .col-3 {
+  flex-basis: 32.5%;
+}
+.row .col-4 {
+  flex-basis: 24%;
+}
+
+.sections {
+  padding-block: 3rem;
+  padding-inline: 1rem;
+}
+
+.section-title {
+  text-align: center;
+  font-size: clamp(1.5rem, 2vw, 3rem);
+}
+
+.small-txt {
+  font-size: clamp(1.2rem, 1.5vw, 1.3rem);
+}
+
+.big-txt {
+  line-height: 1.2;
+  font-size: clamp(1.5rem, 7vw, 4rem);
+  font-weight: 600;
+}
+
+.large-txt {
+  line-height: 1;
+  font-size: clamp(1.5rem, 10vw, 5rem);
+  font-weight: 600;
+}
+
+.heading-sm {
+  font-size: 1.2rem;
+}
+
+.heading-md {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.center {
+  margin-inline: auto;
+}
+
+.tac {
+  text-align: center;
+}
+
+.con-fluid,
+.con-sm,
+.con-md,
+.con-lg {
+  margin-inline: auto;
+}
+
+.con-fluid {
+  max-width: 100%;
+}
+
+.con-sm {
+  max-width: 600px;
+}
+
+.con-md {
+  max-width: 960px;
+}
+
+.con-lg {
+  max-width: 1260px;
+}
+
+.spacing {
+  padding-block: 6rem;
+}
+
+.btn-con {
+  width: 100%;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.btn {
+  padding-block: 0.5rem;
+  padding-inline: 1rem;
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
+  font-weight: 500;
+  margin-block: 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.6s ease;
+  position: relative;
+  top: 1rem;
+}
+.btn:hover {
+  scale: 1.05;
+  transition: all 0.6s ease;
+  padding-right: 2rem;
+}
+
+.btn-prim {
+  background-color: hsl(130, 100%, 35%);
+  color: #fff;
+}
+.btn-prim:hover {
+  background-color: hsl(130, 94%, 25%);
+}
+
+.btn-sec {
+  background-color: hsl(0, 100%, 40%);
+  color: #fff;
+}
+.btn-sec:hover {
+  background-color: hsl(0, 100%, 23%);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+}
+.btn-outline:hover {
+  background-color: #fff;
+  color: hsl(130, 94%, 25%);
+  border: 1px solid hsl(130, 94%, 25%);
+}
+
+.btn-outline-prim {
+  background-color: transparent;
+  color: hsl(130, 94%, 25%);
+  border: 1px solid hsl(130, 94%, 25%);
+}
+.btn-outline-prim:hover {
+  background-color: hsl(130, 94%, 25%);
+  color: #fff;
+  border: 1px solid hsl(130, 94%, 25%);
+}
+
+.btn-outline-sec {
+  background-color: transparent;
+  color: hsl(0, 100%, 23%);
+  border: 1px solid hsl(0, 100%, 23%);
+}
+.btn-outline-sec:hover {
+  background-color: hsl(0, 100%, 23%);
+  color: #fff;
+  border: 1px solid hsl(0, 100%, 23%);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.gradient-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0, 48, 107, 0.9), rgba(243, 44, 44, 0.9));
+}
+
+.fadeUp {
+  animation: fadeUp linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    scale: 0.2;
+    transform: translateY(200px);
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+    transform: translateY(0px);
+  }
+}
+.fadeDown {
+  animation: fadeDown linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    scale: 0.2;
+    transform: translateY(-200px);
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+    transform: translateY(0px);
+  }
+}
+.fadeInLeft {
+  animation: fadeInLeft linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+.fadeInRight {
+  animation: fadeInRight linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}/*# sourceMappingURL=utility.css.map */

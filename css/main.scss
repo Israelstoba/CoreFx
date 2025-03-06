@@ -1,0 +1,150 @@
+@import 'utility';
+
+* {
+  scroll-behavior: smooth;
+}
+
+#calc-section {
+  background: url(../assets/Fxbg.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .calc-con {
+    position: relative;
+    z-index: 100;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(9.5px);
+    -webkit-backdrop-filter: blur(9.5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: $fff;
+    padding: 2rem 1rem 3rem;
+
+    .logo-con {
+      text-align: center;
+      .logo {
+        width: 60px;
+        background-color: $fff;
+        padding: 0.2rem;
+        border-radius: 50%;
+        box-shadow: $shadowMd;
+      }
+    }
+
+    .calc-title {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .input-fields {
+      width: 100%;
+      padding: 0.5rem 1rem;
+      margin-block: 0.5rem;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      color: $clrPrim100;
+      font-size: 1rem;
+      font-weight: 600;
+      box-shadow: $shadowSm;
+
+      &::placeholder {
+        color: $clrPrim100;
+        font-weight: 500;
+      }
+
+      &::nth-last-child() {
+        padding-bottom: 0;
+      }
+    }
+
+    .instrument-wrapper {
+      &:focus-visible {
+        padding: 0;
+      }
+      option {
+        background-color: $fff;
+        color: $clrPrim100;
+        padding: 0.5rem 1rem;
+        font-weight: 600;
+      }
+      option:hover {
+        background-color: $clrPrim400;
+        width: 100%;
+      }
+    }
+
+    .risk-con {
+      padding: 0;
+      margin-block: 0.5rem;
+      gap: 0.5rem;
+
+      .swap-con {
+        border-radius: 10px;
+        outline: 1px solid $fff;
+
+        .col-2 {
+          min-width: auto;
+          flex-basis: 49%;
+          padding: 0.5rem 1rem;
+          background-color: transparent;
+          text-align: center;
+        }
+
+        .swap-btn {
+          outline: 1px solid $fff;
+          background-color: $fff;
+          color: $clrPrim100;
+          border-top-right-radius: 10px;
+          border-bottom-right-radius: 10px;
+          font-weight: 600;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 0.5rem;
+
+          .swap-icon {
+            width: 20px;
+          }
+        }
+      }
+    }
+
+    .calc-btn {
+      top: 0;
+      min-width: 180px;
+    }
+    .btn-con {
+      margin-block: 0;
+      // padding-top: 0;
+    }
+
+    .result-con {
+      background-color: $fff;
+      width: 100%;
+      text-align: center;
+      color: $clrGrey100;
+      padding: $sp1;
+      box-shadow: $shadowSm;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+
+      .result-title {
+        color: $clrPrim100;
+      }
+      .lot-size {
+        color: $clrPrim100;
+        font-size: 3rem;
+        font-weight: 600;
+      }
+    }
+  }
+}

@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+#debugCSSInfoBar,
+#pesticide-for-chrome-result {
+  z-index: 100000;
+}
+
+////////SASS VARIABLES////////
+/////////Color variables////////
+$clrPrim100: hsl(130, 94%, 25%);
+$clrPrim200: hsl(130, 100%, 35%);
+$clrPrim300: hsl(130, 100%, 50%);
+$clrPrim400: hsl(130, 100%, 90%);
+
+///////////////////////
+$clrSec100: hsl(0, 100%, 23%);
+$clrSec200: hsl(0, 100%, 40%);
+$clrSec300: hsl(0, 100%, 70%);
+$clrSec400: hsl(0, 100%, 90%);
+///////////////////////
+$fff: #fff;
+$dark: #000;
+//////////////////////
+$clrGrey100: hsl(0, 0%, 20%);
+$clrGrey200: hsl(0, 0%, 40%);
+$clrGrey300: hsl(0, 0%, 70%);
+$clrGrey400: hsl(0, 0%, 95%);
+
+///// gradient color variables//////
+$yellowGradient: linear-gradient(-45deg, #ff9900, #d7ff47);
+$greenGradient: linear-gradient(45deg, #0d5812, #42b84a);
+
+///////Spacing Variables///////
+$sp0: 0.5rem;
+$sp1: 1rem;
+$sp2: 2rem;
+$sp3: 3rem;
+$sp4: 4rem;
+$sp5: 5rem;
+$sp6: 6rem;
+$sp7: 7rem;
+///////Border Radius Variables///////
+$br5: 0.3125rem;
+$br10: 0.625rem;
+$br15: 0.9375rem;
+$br20: 1.25rem;
+$br25: 1.5625rem;
+$br50: 50%;
+//////////////
+$shadowSm: 3px 3px 5px rgba(0, 0, 0, 0.5);
+$shadowMd: 5px 5px 10px rgba(0, 0, 0, 0.5);
+
+///////////Tag Defaults
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+}
+
+body {
+  // font-family: 'Montserrat', sans-serif;
+  // font-family: 'Poppins', sans-serif;
+  font-family: 'Outfit', sans-serif;
+}
+
+li {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+  color: var(--clr-light);
+}
+
+////////SaaS  Utility Mixins////////
+
+@mixin shadowSm {
+  box-shadow: $shadowSm;
+}
+@mixin shadowMd {
+  box-shadow: $shadowSm;
+}
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin absoluteCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@mixin canvas {
+  width: 100%;
+  height: 100vh;
+  @include flexCenter;
+}
+@mixin mainCanvas {
+  inset: 0;
+  position: fixed;
+  z-index: 1000;
+}
+
+//////UTILITY CLASSES/////////
+
+//////Flex
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-inline: auto;
+
+  .col-1,
+  .col-2,
+  .col-3,
+  .col-4 {
+    min-width: 200px;
+    flex: 1;
+  }
+
+  .col-1 {
+    flex-basis: 100%;
+  }
+
+  .col-2 {
+    flex-basis: 49%;
+  }
+  .col-3 {
+    flex-basis: 32.5%;
+  }
+  .col-4 {
+    flex-basis: 24%;
+  }
+}
+
+//////// Sections/Text/////////
+.sections {
+  // width: 100%;
+  padding-block: $sp3;
+  padding-inline: $sp1;
+}
+
+.section-title {
+  text-align: center;
+  font-size: clamp(1.5rem, 2vw, 3rem);
+}
+
+.small-txt {
+  font-size: clamp(1.2rem, 1.5vw, 1.3rem);
+}
+
+.big-txt {
+  line-height: 1.2;
+  font-size: clamp(1.5rem, 7vw, 4rem);
+  font-weight: 600;
+}
+.large-txt {
+  line-height: 1;
+  font-size: clamp(1.5rem, 10vw, 5rem);
+  font-weight: 600;
+}
+
+.heading-sm {
+  font-size: 1.2rem;
+}
+.heading-md {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+///////Containers////////////
+.center {
+  margin-inline: auto;
+}
+
+.tac {
+  text-align: center;
+}
+
+.con-fluid,
+.con-sm,
+.con-md,
+.con-lg {
+  margin-inline: auto;
+}
+.con-fluid {
+  max-width: 100%;
+}
+
+.con-sm {
+  max-width: 600px;
+}
+.con-md {
+  max-width: 960px;
+}
+.con-lg {
+  max-width: 1260px;
+}
+
+.spacing {
+  padding-block: $sp6;
+}
+
+///////////Buttons ////////////
+.btn-con {
+  //   margin-block: $sp2;
+  width: 100%;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.btn {
+  padding-block: $sp0;
+  padding-inline: $sp1;
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
+  font-weight: 500;
+  margin-block: $sp1;
+  border-radius: $sp0;
+  transition: all 0.6s ease;
+  position: relative;
+  top: 1rem;
+  // min-width: 80px;
+
+  &:hover {
+    scale: 1.05;
+    transition: all 0.6s ease;
+    padding-right: $sp2;
+  }
+}
+
+.btn-prim {
+  background-color: $clrPrim200;
+  color: $fff;
+
+  &:hover {
+    background-color: $clrPrim100;
+  }
+}
+.btn-sec {
+  background-color: $clrSec200;
+  color: $fff;
+
+  &:hover {
+    background-color: $clrSec100;
+  }
+}
+.btn-outline {
+  background-color: transparent;
+  color: $fff;
+  border: 1px solid $fff;
+
+  &:hover {
+    background-color: $fff;
+    color: $clrPrim100;
+    border: 1px solid $clrPrim100;
+  }
+}
+.btn-outline-prim {
+  background-color: transparent;
+  color: $clrPrim100;
+  border: 1px solid $clrPrim100;
+
+  &:hover {
+    background-color: $clrPrim100;
+    color: $fff;
+    border: 1px solid $clrPrim100;
+  }
+}
+.btn-outline-sec {
+  background-color: transparent;
+  color: $clrSec100;
+  border: 1px solid $clrSec100;
+
+  &:hover {
+    background-color: $clrSec100;
+    color: $fff;
+    border: 1px solid $clrSec100;
+  }
+}
+
+/////////Overlay
+.overlay {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.gradient-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0, 48, 107, 0.9), rgba(243, 44, 44, 0.9));
+  // z-index: 1;
+}
+
+///////////Animation////////////
+
+//////////////fadeIn
+.fadeUp {
+  animation: fadeUp linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    scale: 0.2;
+    transform: translateY(200px);
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+    transform: translateY(0px);
+  }
+}
+.fadeDown {
+  animation: fadeDown linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    scale: 0.2;
+    transform: translateY(-200px);
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+    transform: translateY(0px);
+  }
+}
+
+.fadeInLeft {
+  animation: fadeInLeft linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.fadeInRight {
+  animation: fadeInRight linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
