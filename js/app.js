@@ -30,14 +30,40 @@ document.getElementById('pair').addEventListener('change', async function () {
   await fetchLivePrice(selectedPair); // Fetch and display price
 });
 
-// Toggle between $ and % for Risk Input
 let riskMode = '$'; // Default risk mode
 
-document.querySelector('.swap-btn').addEventListener('click', function () {
-  riskMode = riskMode === '$' ? '%' : '$';
-  document.querySelector('.to-percent').textContent = riskMode;
-});
+function swapRiskMode() {
+  let balance = parseFloat(document.getElementById('balance').value);
+  let riskInput = document.getElementById('risk');
+  let riskLabel = document.getElementById('risk-label');
+  let riskType = document.getElementById('risk-type');
 
+  if (riskMode === '$') {
+    // Switch to Percentage Mode
+    riskMode = '%';
+    riskLabel.textContent = '%';
+    riskType.textContent = '%';
+
+    if (!isNaN(balance) && balance > 0) {
+      let dollarValue = parseFloat(riskInput.value);
+      riskInput.value = dollarValue
+        ? ((dollarValue / balance) * 100).toFixed(2)
+        : '';
+    }
+  } else {
+    // Switch to Dollar Mode
+    riskMode = '$';
+    riskLabel.textContent = '$';
+    riskType.textContent = '$';
+
+    if (!isNaN(balance) && balance > 0) {
+      let percentValue = parseFloat(riskInput.value);
+      riskInput.value = percentValue
+        ? ((percentValue / 100) * balance).toFixed(2)
+        : '';
+    }
+  }
+}
 // Calculate Lot Size
 async function calculateLotSize() {
   let balance = parseFloat(document.getElementById('balance').value);
